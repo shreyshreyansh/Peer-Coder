@@ -11,7 +11,7 @@ class VideoBar extends Component {
             <Video
               key={peer.userId}
               media={peer.stream}
-              height={120}
+              height={110}
               width={160}
             ></Video>
           );

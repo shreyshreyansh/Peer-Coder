@@ -1,6 +1,7 @@
 video {
   margin: 5px 0px 0px 5px;
-  border-radius: 5px;
   object-fit: cover;
-  border: 1px solid #727272;
+  border-style: solid;
+  border-width: 4px;
+  border-image: linear-gradient(45deg, rgb(124, 66, 218), rgb(233, 30, 99)) 1;
 }

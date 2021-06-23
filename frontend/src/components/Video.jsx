@@ -36,8 +36,8 @@ class Video extends React.Component {
 
 Video.defaultProps = {
   children: null,
-  height: 150,
-  width: 150,
+  height: 110,
+  width: 160,
   muted: true,
   media: null,
 };
