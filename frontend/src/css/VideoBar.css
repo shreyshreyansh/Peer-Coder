@@ -1,7 +1,8 @@
 div.scrollmenu {
-  background-color: #000;
+  background-color: rgb(3, 37, 78);
   overflow: auto;
   white-space: nowrap;
+  padding: 3px;
 }
 div.scrollmenu video {
   display: inline-block;

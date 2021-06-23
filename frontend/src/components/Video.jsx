@@ -38,7 +38,7 @@ Video.defaultProps = {
   children: null,
   height: 110,
   width: 160,
-  muted: true,
+  muted: false,
   media: null,
 };
 

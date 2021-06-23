@@ -13,6 +13,7 @@ class VideoBar extends Component {
               media={peer.stream}
               height={110}
               width={160}
+              muted={this.props.userId === peer.userId ? true : false}
             ></Video>
           );
         })}

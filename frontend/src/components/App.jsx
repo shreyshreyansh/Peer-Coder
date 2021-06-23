@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "./Header";
 import VideoBar from "./VideoBar";
 import io from "socket.io-client";
 import Peer from "peerjs";
@@ -10,8 +11,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userId: "",
+      stream: {},
       peers: [],
     };
+    this.handleVideoToggle = this.handleVideoToggle.bind(this);
+    this.handleAudioToggle = this.handleAudioToggle.bind(this);
   }
   componentDidMount() {
     myPeer.on("open", (id) => {
@@ -21,6 +26,7 @@ class App extends Component {
           audio: true,
         })
         .then((stream) => {
+          this.addUserIdAndStream(id, stream);
           this.addVideoStream(id, stream, false);
           socket.on("user-connected", (userId) => {
             this.connectToNewUser(userId, stream);
@@ -62,6 +68,10 @@ class App extends Component {
   }
 
   addVideoStream(userId, stream, flag) {
+    if (userId === this.state.userId) {
+      stream.getVideoTracks()[0].enabled = false;
+      stream.getAudioTracks()[0].enabled = false;
+    }
     const peers = this.state.peers;
     peers.forEach((peer) => {
       if (peer.userId === userId) {
@@ -73,8 +83,40 @@ class App extends Component {
     this.setState({ peers: peers });
   }
 
+  addUserIdAndStream(userId, stream) {
+    this.setState({ userId: userId, stream: stream });
+  }
+
+  handleVideoToggle(userId) {
+    this.state.peers.forEach((peer) => {
+      if (peer.userId === userId) {
+        const enabled = peer.stream.getVideoTracks()[0].enabled;
+        peer.stream.getVideoTracks()[0].enabled = !enabled;
+      }
+    });
+  }
+
+  handleAudioToggle(userId) {
+    this.state.peers.forEach((peer) => {
+      if (peer.userId === userId) {
+        const enabled = peer.stream.getAudioTracks()[0].enabled;
+        peer.stream.getAudioTracks()[0].enabled = !enabled;
+      }
+    });
+  }
+
   render() {
-    return <VideoBar peersStream={this.state.peers} />;
+    return (
+      <React.Fragment>
+        <Header
+          userId={this.state.userId}
+          stream={this.state.stream}
+          onVideoToggle={this.handleVideoToggle}
+          onAudioToggle={this.handleAudioToggle}
+        />
+        <VideoBar peersStream={this.state.peers} userId={this.state.userId} />
+      </React.Fragment>
+    );
   }
 }
 export default App;
