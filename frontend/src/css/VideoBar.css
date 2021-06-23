@@ -1,0 +1,8 @@
+div.scrollmenu {
+  background-color: #000;
+  overflow: auto;
+  white-space: nowrap;
+}
+div.scrollmenu video {
+  display: inline-block;
+}
