@@ -3,7 +3,7 @@
   overflow: hidden;
   background-color: rgb(1, 28, 39);
   text-decoration: none;
-  padding: 8px;
+  padding: 9px;
 }
 
 .logo {
@@ -23,7 +23,7 @@ button {
   color: rgb(3, 37, 78);
   font-size: 0.8rem;
   width: 35px;
-  margin: 0 0.25rem;
+  margin: 0 0.3rem;
   border: none;
 }
 

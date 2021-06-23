@@ -1,0 +1,33 @@
+.ui {
+  font-family: "Roboto", sans-serif;
+}
+.ui.selection.dropdown {
+  color: rgb(251, 216, 127);
+  background-color: rgb(3, 37, 78);
+}
+.ui.dropdown .menu > .item {
+  background: rgb(3, 37, 78);
+  color: rgb(251, 216, 127);
+  border: none;
+  z-index: 13;
+  position: relative;
+}
+.ui.dropdown .menu > .item:hover {
+  color: rgb(3, 37, 78);
+  z-index: 13;
+  background: rgb(251, 216, 127);
+}
+.ui.dropdown.selected,
+.ui.dropdown .menu .selected.item {
+  color: rgb(251, 216, 127);
+  z-index: 13;
+  background: rgb(3, 21, 68);
+}
+.dropdown {
+  margin: 10px;
+}
+
+.config-bar {
+  background-color: rgb(1, 28, 39);
+  padding: 0 5px 0 5px;
+}

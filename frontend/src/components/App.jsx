@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import VideoBar from "./VideoBar";
+import Editor from "./Editor";
 import io from "socket.io-client";
 import Peer from "peerjs";
+import "../css/App.css";
 const myPeer = new Peer();
 const socket = io("http://localhost:4000");
 const peers = {};
@@ -14,6 +16,9 @@ class App extends Component {
       userId: "",
       stream: {},
       peers: [],
+      code: "",
+      input: "",
+      output: "",
     };
     this.handleVideoToggle = this.handleVideoToggle.bind(this);
     this.handleAudioToggle = this.handleAudioToggle.bind(this);
@@ -115,6 +120,10 @@ class App extends Component {
           onAudioToggle={this.handleAudioToggle}
         />
         <VideoBar peersStream={this.state.peers} userId={this.state.userId} />
+        <Editor />
+        <div className="footer">
+          <p>Footer</p>
+        </div>
       </React.Fragment>
     );
   }
