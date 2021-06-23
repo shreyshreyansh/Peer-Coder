@@ -31,7 +31,11 @@ class Header extends Component {
               this.toggleVideoCss();
             }}
           >
-            <i className="fa fa-video-camera"></i>
+            <i
+              className={
+                this.state.video ? "fa fa-video-camera" : "fa fa-video-slash"
+              }
+            ></i>
           </button>
           <button
             className={this.state.audio ? "buttonOn" : "buttonOff"}
@@ -40,7 +44,11 @@ class Header extends Component {
               this.toggleAudioCss();
             }}
           >
-            <i className="fa fa-microphone"></i>
+            <i
+              className={
+                this.state.audio ? "fa fa-microphone" : "fa fa-microphone-slash"
+              }
+            ></i>
           </button>
         </div>
       </div>
