@@ -119,6 +119,8 @@ class Editor extends Component {
               mode={this.state.mode}
               theme={this.state.theme}
               fontSize={this.state.fontSize}
+              value={this.props.code}
+              onChange={(data) => this.props.onChangeCode(data)}
               width={"100vw"}
               height={"70vh"}
               showGutter={true}
@@ -138,6 +140,8 @@ class Editor extends Component {
                 mode={this.state.mode}
                 theme={this.state.theme}
                 fontSize={this.state.fontSize}
+                value={this.props.input}
+                onChange={(data) => this.props.onChangeInput(data)}
                 width={"100vw"}
                 height={"30vh"}
                 showGutter={true}
@@ -156,6 +160,8 @@ class Editor extends Component {
                 mode={this.state.mode}
                 theme={this.state.theme}
                 fontSize={this.state.fontSize}
+                value={this.props.output}
+                onChange={(data) => this.props.onChangeOutput(data)}
                 width={"100vw"}
                 height={"40vh"}
                 readOnly={true}

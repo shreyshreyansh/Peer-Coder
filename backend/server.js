@@ -20,6 +20,21 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => {
       socket.broadcast.to(roomId).emit("user-disconnected", userId);
     });
+    socket.on("code change", function (data) {
+      console.log("code", data);
+      socket.broadcast.to(roomId).emit("receive code", data);
+    });
+    socket.on("input change", function (data) {
+      console.log("input", data);
+      socket.broadcast.to(roomId).emit("receive input", data);
+    });
+    socket.on("output change", function (data) {
+      console.log("output", data);
+      socket.broadcast.to(roomId).emit("receive output", data);
+    });
+    socket.on("data-for-new-user", function (data) {
+      socket.broadcast.emit("receive-data-for-new-user", data);
+    });
   });
 });
 

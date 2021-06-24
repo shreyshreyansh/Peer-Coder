@@ -23,6 +23,9 @@ class App extends Component {
     };
     this.handleVideoToggle = this.handleVideoToggle.bind(this);
     this.handleAudioToggle = this.handleAudioToggle.bind(this);
+    this.handleChangeCode = this.handleChangeCode.bind(this);
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.handleChangeOutput = this.handleChangeOutput.bind(this);
   }
   componentDidMount() {
     myPeer.on("open", (id) => {
@@ -36,6 +39,7 @@ class App extends Component {
           this.addVideoStream(id, stream, false);
           socket.on("user-connected", (userId) => {
             this.connectToNewUser(userId, stream);
+            this.sendDatatoNewUser();
           });
           myPeer.on("call", (call) => {
             call.answer(stream);
@@ -52,11 +56,44 @@ class App extends Component {
             peers[call.peer] = call;
           });
           socket.emit("join-room", this.props.roomId, id);
+          socket.on("receive code", (payload) => {
+            this.updateCodeFromSockets(payload);
+          });
+          socket.on("receive input", (payload) => {
+            this.updateInputFromSockets(payload);
+          });
+          socket.on("receive output", (payload) => {
+            this.updateOutputFromSockets(payload);
+          });
+          socket.on("receive-data-for-new-user", (payload) => {
+            this.updateStateFromSockets(payload);
+          });
         });
     });
     socket.on("user-disconnected", (userId) => {
       if (peers[userId]) peers[userId].close();
     });
+  }
+  sendDatatoNewUser() {
+    socket.emit("data-for-new-user", {
+      newCode: this.state.code,
+      newInput: this.state.input,
+      newOutput: this.state.output,
+    });
+  }
+  updateStateFromSockets(payload) {
+    this.setState({ code: payload.newCode });
+    this.setState({ input: payload.newInput });
+    this.setState({ output: payload.newOutput });
+  }
+  updateCodeFromSockets(payload) {
+    this.setState({ code: payload.newCode });
+  }
+  updateInputFromSockets(payload) {
+    this.setState({ input: payload.newInput });
+  }
+  updateOutputFromSockets(payload) {
+    this.setState({ output: payload.newOutput });
   }
   connectToNewUser(userId, stream) {
     const call = myPeer.call(userId, stream);
@@ -110,6 +147,24 @@ class App extends Component {
       }
     });
   }
+  handleChangeCode(newCode) {
+    this.setState({ code: newCode });
+    socket.emit("code change", {
+      newCode: newCode,
+    });
+  }
+  handleChangeInput(newInput) {
+    this.setState({ input: newInput });
+    socket.emit("input change", {
+      newInput: newInput,
+    });
+  }
+  handleChangeOutput(newOutput) {
+    this.setState({ output: newOutput });
+    socket.emit("output change", {
+      newOutput: newOutput,
+    });
+  }
 
   render() {
     return (
@@ -121,7 +176,14 @@ class App extends Component {
           onAudioToggle={this.handleAudioToggle}
         />
         <VideoBar peersStream={this.state.peers} userId={this.state.userId} />
-        <Editor />
+        <Editor
+          code={this.state.code}
+          input={this.state.input}
+          output={this.state.output}
+          onChangeCode={this.handleChangeCode}
+          onChangeInput={this.handleChangeInput}
+          onChangeOutput={this.handleChangeOutput}
+        />
         <Footer />
       </React.Fragment>
     );
