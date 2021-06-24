@@ -98,6 +98,7 @@ class Editor extends Component {
     return (
       <React.Fragment>
         <ConfigBar
+          defaultMode={this.state.mode}
           handleOnChange={this.handleOnChange}
           languages={lang}
           fontSizes={font}
@@ -111,7 +112,9 @@ class Editor extends Component {
           style={{ height: "65vh" }}
         >
           <div>
-            <div className="head">CODE HERE</div>
+            <div className="head">
+              <div className="text">CODE HERE</div>
+            </div>
             <AceEditor
               mode={this.state.mode}
               theme={this.state.theme}
@@ -128,7 +131,9 @@ class Editor extends Component {
           </div>
           <div>
             <div>
-              <div className="head">INPUT</div>
+              <div className="head">
+                <div className="text">INPUT</div>
+              </div>
               <AceEditor
                 mode={this.state.mode}
                 theme={this.state.theme}
@@ -144,7 +149,9 @@ class Editor extends Component {
               />
             </div>
             <div>
-              <div className="head">OUTPUT</div>
+              <div className="head">
+                <div className="text">OUTPUT</div>
+              </div>
               <AceEditor
                 mode={this.state.mode}
                 theme={this.state.theme}

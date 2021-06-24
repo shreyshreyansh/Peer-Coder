@@ -20,7 +20,7 @@ class ConfigBar extends Component {
           selection
           options={this.props.languages}
           onChange={(e, data) => this.props.handleOnChange(e, data)}
-          defaultValue={this.props.languages[4].value}
+          defaultValue={this.props.defaultMode}
         />
         <Dropdown
           className="dropdown"

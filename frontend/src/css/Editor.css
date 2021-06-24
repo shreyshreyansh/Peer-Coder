@@ -48,8 +48,11 @@
   border-color: transparent;
 }
 .head {
-  background-color: rgb(1, 28, 39);
-  color: rgb(251, 216, 127);
-  font-size: 2 rem;
+  background-color: rgb(251, 216, 127);
+  color: rgb(1, 28, 39);
+}
+.text {
   font-family: "Roboto", sans-serif;
+  font-weight: 1000;
+  margin-left: 15px;
 }

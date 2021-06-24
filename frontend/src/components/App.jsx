@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import VideoBar from "./VideoBar";
 import Editor from "./Editor";
+import Footer from "./Footer";
 import io from "socket.io-client";
 import Peer from "peerjs";
 import "../css/App.css";
@@ -121,9 +122,7 @@ class App extends Component {
         />
         <VideoBar peersStream={this.state.peers} userId={this.state.userId} />
         <Editor />
-        <div className="footer">
-          <p>Footer</p>
-        </div>
+        <Footer />
       </React.Fragment>
     );
   }
