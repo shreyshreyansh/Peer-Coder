@@ -1,6 +1,7 @@
 // https://peaceful-depths-33963.herokuapp.com/
 const app = require("express")();
 const http = require("http").Server(app);
+const PORT = process.env.PORT || 4000;
 const io = require("socket.io")(http, {
   cors: {
     origin: "*",
@@ -43,4 +44,6 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(process.env.PORT || 4000);
+http.listen(PORT, () => {
+  console.log(`Server is running at port ${PORT}`);
+});
