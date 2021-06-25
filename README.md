@@ -42,8 +42,8 @@
 > Spin the react on port 3000
     >> cd frontend
     >> npm start
-> Start the server
-    >> npm start
+> Visit the website on http://localhost:3000/
+    
 ```
 
 [![OPEN-PR](https://img.shields.io/badge/Open%20For-PR-orange?style=for-the-badge&logo=github)](https://github.com/shreyshreyansh/Peer-Coder)
