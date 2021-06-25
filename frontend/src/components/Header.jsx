@@ -17,12 +17,18 @@ class Header extends Component {
     let video = this.state.video;
     this.setState({ video: !video });
   }
+  handleClick() {
+    window.prompt("ROOM URL", window.location.href);
+  }
   render() {
     return (
       <div className="header">
-        <span href="#" className="logo">
+        <div href="#" className="logo">
           PEER CODER
-        </span>
+        </div>
+        <button className="copy-url" onClick={() => this.handleClick()}>
+          ROOM URL
+        </button>
         <div className="header-right">
           <button
             className={this.state.video ? "buttonOn" : "buttonOff"}

@@ -12,6 +12,26 @@
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
   font-weight: 500;
+  display: inline-block;
+  margin-top: 7px;
+}
+
+.copy-url {
+  float: right;
+  margin-right: 10px;
+  width: 120px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700px;
+}
+.copy-url:hover {
+  float: right;
+  margin-right: 10px;
+  width: 120px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  background-color: rgb(3, 37, 78);
+  color: rgb(251, 216, 127);
 }
 
 button {

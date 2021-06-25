@@ -31,3 +31,22 @@
   background-color: rgb(1, 28, 39);
   padding: 0 5px 0 5px;
 }
+
+.run {
+  float: right;
+  margin-right: 10px;
+  margin-top: 12px;
+  width: 120px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700px;
+}
+.run:hover {
+  float: right;
+  margin-right: 10px;
+  width: 120px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  background-color: rgb(3, 37, 78);
+  color: rgb(251, 216, 127);
+}

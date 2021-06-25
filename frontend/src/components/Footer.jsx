@@ -8,11 +8,17 @@ class Footer extends Component {
         <a
           href="https://github.com/shreyshreyansh/Peer-Coder"
           target="_blank"
+          rel="noopener noreferrer"
           className="left-footer"
         >
           ⭐ Star Project
         </a>
-        <a href="https://github.com" target="_blank" className="right-footer">
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="right-footer"
+        >
           © GitHub community
         </a>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   useParams,
   Redirect,
