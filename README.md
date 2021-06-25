@@ -19,6 +19,11 @@
 #### Peer Coder is ideal for Online Interviewing of Developers as well as Learning to code from Friends.
 #### An online code editor for interviews, troubleshooting, teaching & more…
 
+## How it works? 🤔
+- **open the website [https://shreyshreyansh.github.io/Peer-Coder-Web/](https://shreyshreyansh.github.io/Peer-Coder-Web/)**
+- **Click Room url button and copy the url given in the prompt**
+- **Share that url with your peers and enjoy coding**
+
 ## Dependencies 🗃
 
 - [React.js](https://reactjs.org/) - **Frontend Framework**
